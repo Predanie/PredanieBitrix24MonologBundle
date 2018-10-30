@@ -1,0 +1,23 @@
+{
+    "name": "predanie/bitrix24-monolog-bundle",
+    "type": "symfony-bundle",
+    "description": "Allows you send errors to a bitrix24 chat using a webhook integration",
+    "keywords": ["bitrix24", "webhook"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name":     "Predanie",
+            "homepage": "https://www.predanie.ru"
+        }
+    ],
+    "require": {
+        "php": ">=5.5",
+        "ext-intl": "*",
+        "php-http/guzzle6-adapter": "^1.1"
+    },
+    "autoload": {
+        "psr-0": { "Predanie\\Bitrix24Bundle": "" }
+    },
+    "minimum-stability": "dev",
+    "target-dir": "Predanie/Bitrix24Bundle"
+}
