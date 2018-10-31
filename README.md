@@ -28,7 +28,7 @@ monolog:
     handlers:
         bitrix24:
             type: service
-            id: app.bitrix24_monolog_handler
+            id: predanie.bitrix24_monolog_handler
 ```
 
 You also can configure it:
