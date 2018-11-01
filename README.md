@@ -33,7 +33,7 @@ monolog:
 
 You also can configure it:
 ``` yml
-bitrix24:
+predanie_bitrix24_monolog:
     chat_id: 33 # use own chart id
     user_id: 3  # use own user id
     webhook: ABCD_F # create a webhook in the bitrix24 admin panel
