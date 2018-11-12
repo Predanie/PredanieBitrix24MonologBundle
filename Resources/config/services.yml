@@ -4,4 +4,4 @@ services:
         arguments: ['%predanie_bitrix24_monolog.chat_id%', '%predanie_bitrix24_monolog.user_id%', '%predanie_bitrix24_monolog.webhook%']
     predanie.bitrix24_monolog_handler:
         class:  Predanie\Bitrix24Bundle\Handler\MonologHandler
-        arguments: ['@request_stack', '@app.bitrix24_manager']
+        arguments: ['@request_stack', '@predanie.bitrix24_manager']
