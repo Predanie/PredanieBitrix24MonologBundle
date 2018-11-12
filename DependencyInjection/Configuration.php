@@ -10,7 +10,7 @@ class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('bitrix24');
+        $rootNode = $treeBuilder->root('predanie_bitrix24_monolog');
 
         $rootNode
             ->children()

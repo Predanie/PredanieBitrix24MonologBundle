@@ -12,14 +12,14 @@ class PredanieBitrix24MonologExtension extends Extension
 {
     public function load(array $configs, ContainerBuilder $container)
     {
-	    $configuration = new Configuration();
-	    $config = $this->processConfiguration($configuration, $configs);
+        $configuration = new Configuration();
+        $config = $this->processConfiguration($configuration, $configs);
 
-	    $loader = new YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
-	    $loader->load('services.yml');
+        $container->setParameter('predanie_bitrix24_monolog.chat_id', $config['chat_id']);
+        $container->setParameter('predanie_bitrix24_monolog.user_id', $config['user_id']);
+        $container->setParameter('predanie_bitrix24_monolog.webhook', $config['webhook']);
 
-        $container->setParameter('bitrix24.chat_id', $config['chat_id']);
-        $container->setParameter('bitrix24.user_id', $config['user_id']);
-        $container->setParameter('bitrix24.webhook', $config['webhook']);
+        $loader = new YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
+        $loader->load('services.yml');
     }
 }
