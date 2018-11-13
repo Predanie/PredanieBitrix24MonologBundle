@@ -10,7 +10,7 @@ Install using Composer:
 ./composer require predanie/bitrix24-monolog-bundle
 ```
 
-This is updated version. If you whant to use old version, use 0.1 instead
+This version was tested with a project based on symfony 3.4.
 
 Add the bundle to your AppKernel.php:
 
@@ -22,19 +22,41 @@ $bundles = array(
 );
 ```
 
-And add bitrix24 handler:
+Create a monolog.yml file using current path app/config/bitrix24/monolog.yml and include it to the config_prod.yml file:
+
+```
+imports:
+    - { resource: bitrix24/monolog.yml }
+```
+ 
+Add bitrix24 handler and configure it:
+
 ``` yml
 monolog:
     handlers:
         bitrix24:
             type: service
             id: predanie.bitrix24_monolog_handler
+
+predanie_bitrix24_monolog:
+    chat_id: '%bitrix24_chat_id%'
+    user_id: '%bitrix24_user_id%'
+    webhook: '%bitrix24_webhook%'
 ```
 
-You also can configure it:
+Add parameters to your parameters.yml:
+
 ``` yml
-predanie_bitrix24_monolog:
-    chat_id: 33 # use own chart id
-    user_id: 3  # use own user id
-    webhook: ABCD_F # create a webhook in the bitrix24 admin panel
+    bitrix24_chat_id: 1 # your bitrix24 chat for logging
+    bitrix24_user_id: 1 # user id who send messages to bitrix24 chat 
+    bitrix24_webhook: xxxxxxxxxxxxxx # Weebhook code - need to create in the Bitrix24 admin panel
+```
+Enjoy!
+
+P.S.: if you need send some custom exceptions just call the bitrix24 manager.
+
+DefaultController.php example:
+
+``` php
+    $this->get('predanie.bitrix24_manager')->imMessageAdd($e->getMessage());
 ```
